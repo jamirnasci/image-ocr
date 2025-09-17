@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrator de Texto de Imagens</title>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-text-height"></i> Extrator de Texto de Imagens</h1>
+        
+        <div class="upload-section">
+            <h2>Selecionar Imagem</h2>
+            <input type="file" id="imageUpload" accept="image/*" class="file-input">
+            <label for="imageUpload" class="file-label">
+                <i class="fas fa-upload"></i> Escolher Imagem
+            </label>
+        </div>
+        
+        <div class="preview-section hidden" id="previewSection">
+            <h2>Pré-visualização</h2>
+            <div class="preview-container">
+                <img id="imagePreview" src="#" alt="Pré-visualização da imagem">
+            </div>
+            <button id="extractButton" class="button">
+                <i class="fas fa-search"></i> Extrair Texto
+            </button>
+            
+            <div class="progress hidden" id="progressBar">
+                <div class="progress-bar" id="progressBarInner"></div>
+            </div>
+            <div class="status" id="statusText"></div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-camera"></i>
+                <h3>Selecione</h3>
+                <p>Escolha uma imagem do seu dispositivo</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-search"></i>
+                <h3>Extraia</h3>
+                <p>Extraia o texto com tecnologia OCR</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-copy"></i>
+                <h3>Copie</h3>
+                <p>Copie o texto extraído facilmente</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Desenvolvido com Tesseract.js - Tecnologia de OCR em JavaScript</p>
+        </footer>
+    </div>
+    
+    <!-- Modal para resultados -->
+    <div class="modal" id="resultModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-file-alt"></i> Texto Extraído</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="result-container" id="extractedText"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="copyButton" class="copy-btn">
+                    <i class="fas fa-copy"></i> Copiar Texto
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i> Texto copiado com sucesso!
+    </div>
+</body>
+<script src="./script.js"></script>
+</html>
